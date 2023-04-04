@@ -10,7 +10,7 @@
 
 		public string? PictureUrl { get; set; }
 
-		public ProductType productType { get; set; }
+		public ProductType ProductType { get; set; }
 
 		public int ProductTypeId { get; set; }
 
