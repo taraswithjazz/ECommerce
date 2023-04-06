@@ -24,11 +24,17 @@
   <ItemGroup>
     <None Remove="Dtos\" />
     <None Remove="Helpers\" />
+    <None Remove="Errors\" />
+    <None Remove="Middleware\" />
+    <None Remove="Extentions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dtos\" />
     <Folder Include="Helpers\" />
     <Folder Include="wwwroot\" />
+    <Folder Include="Errors\" />
+    <Folder Include="Middleware\" />
+    <Folder Include="Extentions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
