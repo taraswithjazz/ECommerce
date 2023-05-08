@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/models/user';
 import { Router } from '@angular/router';
+import { IAddress } from '../shared/models/address';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AccountService {
   constructor(private http: HttpClient, private router: Router) { }
 
   loadCurrentUser(token: string) {
-    if (token === null) {
+    if (token == null) {
       this.currentUserSource.next(null);
       return of(null);
     }
@@ -70,5 +71,13 @@ export class AccountService {
 
   checkEmailExists(email: string) {
     return this.http.get(this.baseUrl + 'account/emailExists?email=' + email);
+  }
+
+  getUserAddress() {
+    return this.http.get<IAddress>(this.baseUrl + 'account/address');
+  }
+
+  updateUserAddress(address: IAddress) {
+    return this.http.put<IAddress>(this.baseUrl + 'account/address', address);
   }
 }
