@@ -4,6 +4,7 @@ using System.Security.Claims;
 using API.Dtos;
 using API.Errors;
 using API.Extentions;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities.OrderAggregate;
 using Core.Interfaces;
@@ -42,6 +43,7 @@ namespace API.Controllers
 			return Ok(order);
         }
 
+		[Cached(600)]
 		[HttpGet]
 		public async Task<ActionResult<IReadOnlyList<OrderToReturnDto>>> GetOrdersForUser()
 		{
@@ -65,6 +67,7 @@ namespace API.Controllers
             return _mapper.Map<Order, OrderToReturnDto>(order);
         }
 
+        [Cached(1000)]
         [HttpGet("deliveryMethods")]
         public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
         {
